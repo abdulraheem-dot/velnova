@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account — VELNOVA</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="nav-ph"></div>
+
+<div class="page-hdr">
+  <div class="label-text" style="color:var(--grey-400);margin-bottom:8px">Your Account</div>
+  <h1>My Profile</h1>
+  <div class="breadcrumb"><a href="/">Home</a><span>/</span><span>Profile</span></div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="profile-layout">
+
+      <div class="profile-sidebar">
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="p-name" id="p-name">Loading...</div>
+          <div class="p-email" id="p-email"></div>
+        </div>
+        <button class="p-nav-btn active" id="ptab-orders" onclick="showProfileTab('orders')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+          My Orders
+        </button>
+        <button class="p-nav-btn" id="ptab-details" onclick="showProfileTab('details')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Account Details
+        </button>
+        <button class="p-nav-btn" onclick="profileLogout()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </button>
+      </div>
+
+      <div>
+        <div class="p-panel" id="panel-orders">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--grey-200)">
+            <h2 style="font-family:var(--font-display);font-size:1.4rem">My Orders</h2>
+            <a href="/shop.html" class="btn btn-outline btn-sm">Shop More</a>
+          </div>
+          <div id="orders-list"><p style="color:var(--grey-400);text-align:center;padding:40px">Loading orders...</p></div>
+        </div>
+
+        <div class="p-panel" id="panel-details" style="display:none">
+          <div style="margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--grey-200)">
+            <h2 style="font-family:var(--font-display);font-size:1.4rem">Account Details</h2>
+          </div>
+          <div style="max-width:440px">
+            <div style="background:var(--grey-50);padding:24px;display:flex;flex-direction:column;gap:14px">
+              <div style="display:flex;justify-content:space-between;font-size:.875rem">
+                <span style="color:var(--grey-600)">Full Name</span>
+                <strong id="pd-name-val" style="font-weight:400"></strong>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:.875rem">
+                <span style="color:var(--grey-600)">Email</span>
+                <strong id="pd-email-val" style="font-weight:400"></strong>
+              </div>
+            </div>
+            <p style="font-size:.78rem;color:var(--grey-600);margin-top:14px;line-height:1.6">
+              To update your details, email us at <a href="mailto:velnovaclothing@gmail.com" style="color:var(--black)">velnovaclothing@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="footer-ph"></div>
+<script src="/js/layout.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

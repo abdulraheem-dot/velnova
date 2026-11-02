@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — VELNOVA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-ph"></div>
+<div class="page-hdr">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--grey-400);margin-bottom:10px;">Get in Touch</div>
+    <h1 style="font-size:clamp(2rem,4vw,3.5rem);">Contact Us</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
+  </div>
+</div>
+<section>
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow" style="color:var(--grey-400);margin-bottom:12px;">Reach Out</div>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:16px;">We're Here<br>to Help.</h2>
+        <p style="color:var(--grey-600);line-height:1.8;margin-bottom:40px;max-width:380px;font-size:0.9rem;">Have a question about sizing, your order, or anything else? We respond to every message — usually within a few hours.</p>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><h4>Email</h4><p>velnovaclothing@gmail.com<br><span style="font-size:0.78rem;color:var(--grey-400)">We reply within a few hours</span></p></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+          <div><h4>WhatsApp</h4><p>Message us on WhatsApp<br><span style="font-size:0.78rem;color:var(--grey-400)">For quick order enquiries</span></p></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h4>Location</h4><p>Nigeria<br><span style="font-size:0.78rem;color:var(--grey-400)">Shipping nationwide to all 36 states</span></p></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" style="color:var(--grey-400);margin-bottom:12px;">Send a Message</div>
+        <h2 style="font-size:clamp(1.5rem,2.5vw,2rem);margin-bottom:28px;">How Can We Help?</h2>
+        <form id="contact-form-el">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-input" placeholder="John" required>
+              <div class="form-err">Required</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-input" placeholder="Doe" required>
+              <div class="form-err">Required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" placeholder="you@email.com" required>
+            <div class="form-err">Valid email required</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <select class="form-input" required>
+              <option value="">Select topic</option>
+              <option>Order Enquiry</option>
+              <option>Sizing Help</option>
+              <option>Returns</option>
+              <option>Payment Issue</option>
+              <option>Other</option>
+            </select>
+            <div class="form-err">Please select a topic</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-input" placeholder="Tell us how we can help..." rows="5" required></textarea>
+            <div class="form-err">Message required</div>
+          </div>
+          <button type="submit" class="btn btn-dark btn-full btn-lg">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer-ph"></div>
+<script src="js/layout.js"></script>
+<script src="js/script.js"></script>
+<script>
+document.getElementById('contact-form-el').addEventListener('submit', e => {
+  e.preventDefault();
+  if (validateForm(e.target)) {
+    toast('Message sent! We\'ll reply within a few hours.');
+    e.target.reset();
+  }
+});
+</script>
+</body>
+</html>

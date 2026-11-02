@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile — VELNOVA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .profile-panel { display:none; }
+    .profile-panel.on { display:block; }
+  </style>
+</head>
+<body>
+<div id="nav-ph"></div>
+<div class="page-hdr">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--grey-400);margin-bottom:10px;">My Account</div>
+    <h1 style="font-size:clamp(2rem,4vw,3rem);">Profile</h1>
+  </div>
+</div>
+<section>
+  <div class="container">
+    <div class="profile-wrap">
+      <!-- Sidebar -->
+      <div>
+        <div class="profile-sidebar" style="margin-bottom:8px;">
+          <div class="profile-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="profile-name-display" id="profile-name-display">Loading...</div>
+          <div class="profile-email-display" id="profile-email-display"></div>
+        </div>
+        <div class="profile-nav">
+          <button class="profile-nav-btn on" onclick="profileTab('orders',event)">My Orders</button>
+          <button class="profile-nav-btn" onclick="profileTab('details',event)">Account Details</button>
+          <button class="profile-nav-btn" onclick="doLogout()" style="color:#c0392b;margin-top:8px;">Logout</button>
+        </div>
+      </div>
+      <!-- Main -->
+      <div>
+        <div class="profile-panel on" id="panel-orders">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--grey-100);">
+            <h2 style="font-family:var(--font-display);font-size:1.5rem;">My Orders</h2>
+            <a href="shop.html" class="btn btn-outline btn-sm">Continue Shopping</a>
+          </div>
+          <div id="my-orders"><p style="color:var(--grey-400);">Loading orders...</p></div>
+        </div>
+        <div class="profile-panel" id="panel-details">
+          <div style="margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--grey-100);">
+            <h2 style="font-family:var(--font-display);font-size:1.5rem;">Account Details</h2>
+          </div>
+          <div style="max-width:440px;">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" id="detail-name" class="form-input" readonly style="background:var(--grey-50);">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" id="detail-email" class="form-input" readonly style="background:var(--grey-50);">
+            </div>
+            <p style="font-size:0.8rem;color:var(--grey-400);margin-top:8px;">To update your details, contact us at <a href="mailto:velnovaclothing@gmail.com" style="color:var(--black)">velnovaclothing@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer-ph"></div>
+<script src="js/layout.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

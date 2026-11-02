@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed — VELNOVA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-ph"></div>
+<section style="padding-top:calc(var(--nav-h) + 80px);min-height:80vh;display:flex;align-items:center;">
+  <div class="container">
+    <div style="max-width:560px;margin:0 auto;text-align:center;">
+      <div style="width:72px;height:72px;background:var(--black);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 28px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:14px;">Order Confirmed!</h1>
+      <p style="color:var(--grey-600);line-height:1.8;margin-bottom:8px;font-size:0.95rem;">Thank you for shopping with VELNOVA. Your order has been received and is awaiting payment confirmation.</p>
+      <p style="color:var(--grey-600);line-height:1.8;margin-bottom:32px;font-size:0.95rem;">Once your bank transfer is verified, we'll process and dispatch your order. Questions? Email us at <a href="mailto:velnovaclothing@gmail.com" style="color:var(--black);text-decoration:underline;">velnovaclothing@gmail.com</a></p>
+      <div style="background:var(--grey-50);padding:20px;margin-bottom:32px;text-align:left;">
+        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey-400);margin-bottom:8px;">Your Order Reference</div>
+        <div style="font-family:var(--font-display);font-size:1.4rem;" id="order-ref">Loading...</div>
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="profile.html" class="btn btn-dark">Track My Order</a>
+        <a href="shop.html" class="btn btn-outline">Continue Shopping</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer-ph"></div>
+<script src="js/layout.js"></script>
+<script src="js/script.js"></script>
+<script>
+  const id = new URLSearchParams(location.search).get('id');
+  document.getElementById('order-ref').textContent = id ? '#' + id.slice(-6).toUpperCase() : '—';
+</script>
+</body>
+</html>

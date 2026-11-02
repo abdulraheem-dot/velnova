@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — VELNOVA</title>
+  <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+<body>
+<div id="nav-ph"></div>
+
+<div class="page-hdr">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--grey-400);margin-bottom:10px;">All Products</div>
+    <h1 style="font-size:clamp(2rem,4vw,3.5rem);">Shop</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Shop</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="shop-wrap">
+      <!-- Filters -->
+      <aside>
+        <div class="sidebar-sec">
+          <div class="sidebar-ttl">Category</div>
+          <button class="filter-opt on" data-filter="all"><span class="filter-dot"></span>All Items</button>
+          <button class="filter-opt" data-filter="men"><span class="filter-dot"></span>Men</button>
+          <button class="filter-opt" data-filter="women"><span class="filter-dot"></span>Women</button>
+        </div>
+        <div class="sidebar-sec">
+          <div class="sidebar-ttl">Sort By</div>
+          <button class="filter-opt on" data-sort="newest"><span class="filter-dot"></span>Newest</button>
+          <button class="filter-opt" data-sort="price-low"><span class="filter-dot"></span>Price: Low to High</button>
+          <button class="filter-opt" data-sort="price-high"><span class="filter-dot"></span>Price: High to Low</button>
+        </div>
+      </aside>
+      <!-- Grid -->
+      <div>
+        <div class="shop-top">
+          <div class="shop-count" id="shop-count">Loading...</div>
+        </div>
+        <div class="products-grid products-grid-3" id="shop-grid">
+          <p style="color:var(--grey-400);grid-column:1/-1;padding:24px">Loading products...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-ph"></div>
+<script src="js/layout.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

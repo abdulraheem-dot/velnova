@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — VELNOVA</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="nav-ph"></div>
+
+<section style="padding-top:calc(var(--nav-h) + 48px)">
+  <div class="wrap">
+    <div class="breadcrumb" style="justify-content:flex-start;margin-bottom:36px">
+      <a href="/">Home</a><span>/</span><a href="/shop.html">Shop</a><span>/</span><span id="pd-name-bc">Product</span>
+    </div>
+
+    <div class="pd-layout">
+      <div class="pd-gallery">
+        <div class="pd-main"><img id="pd-main-img" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80" alt="Product"></div>
+        <div class="pd-thumbs" id="pd-thumbs"></div>
+      </div>
+
+      <div class="pd-info">
+        <div class="pd-cat label-text" id="pd-cat"></div>
+        <h1 class="pd-name" id="pd-name">Loading...</h1>
+        <div class="pd-price" id="pd-price"></div>
+        <p class="pd-desc" id="pd-desc"></p>
+        <hr class="pd-divider">
+
+        <div class="size-row">
+          <span class="label-text" style="font-size:.65rem">Select Size</span>
+        </div>
+        <div class="sizes" id="pd-sizes"></div>
+        <hr class="pd-divider">
+
+        <div style="display:flex;gap:14px;align-items:center;margin-bottom:20px">
+          <div class="qty-wrap">
+            <button class="qty-btn" id="qty-minus">−</button>
+            <div class="qty-num" id="qty-num">1</div>
+            <button class="qty-btn" id="qty-plus">+</button>
+          </div>
+          <button class="btn btn-dark" style="flex:1" id="add-cart-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            Add to Cart
+          </button>
+        </div>
+        <a href="/cart.html" class="btn btn-outline btn-full" style="margin-bottom:24px">View Cart</a>
+
+        <hr class="pd-divider">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:10px;font-size:.82rem;color:var(--grey-600)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+            Delivery across Nigeria (2–5 business days)
+          </div>
+          <div style="display:flex;gap:10px;font-size:.82rem;color:var(--grey-600)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+            Payment via bank transfer after ordering
+          </div>
+          <div style="display:flex;gap:10px;font-size:.82rem;color:var(--grey-600)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+            Questions? velnovaclothing@gmail.com
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--grey-50)">
+  <div class="wrap">
+    <div class="sec-hdr fade-in">
+      <div class="sec-hdr-l">
+        <div class="label-text">More Like This</div>
+        <h2>Related Items</h2>
+      </div>
+      <a href="/shop.html" class="sec-link">View All <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="prod-grid" id="related-grid"></div>
+  </div>
+</section>
+
+<div id="footer-ph"></div>
+<script src="/js/layout.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

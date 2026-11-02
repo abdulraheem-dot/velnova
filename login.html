@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — VELNOVA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-ph"></div>
+<div class="auth-wrap" style="padding-top:var(--nav-h);">
+  <!-- Visual -->
+  <div class="auth-visual">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="VELNOVA">
+    <div class="auth-visual-body">
+      <span class="nav-logo">VEL<span style="font-style:italic;font-weight:400">NOVA</span></span>
+      <p>Premium clothing for the modern Nigerian. Quality pieces built to last.</p>
+    </div>
+  </div>
+  <!-- Form -->
+  <div class="auth-panel">
+    <div class="auth-box">
+      <div class="auth-tabs">
+        <button class="auth-tab on" data-form="login-panel">Sign In</button>
+        <button class="auth-tab" data-form="register-panel">Create Account</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div class="auth-form on" id="login-panel">
+        <h2>Welcome Back</h2>
+        <p>Sign in to your VELNOVA account to view orders and checkout.</p>
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" placeholder="you@email.com" required>
+            <div class="form-err">Valid email required</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-input" placeholder="Your password" required>
+            <div class="form-err">Password required</div>
+          </div>
+          <button type="submit" class="btn btn-dark btn-full btn-lg">Sign In</button>
+        </form>
+      </div>
+
+      <!-- REGISTER -->
+      <div class="auth-form" id="register-panel">
+        <h2>Join VELNOVA</h2>
+        <p>Create your account to shop, track orders, and get exclusive updates.</p>
+        <form id="register-form">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="name" class="form-input" placeholder="John Doe" required>
+            <div class="form-err">Name is required</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" placeholder="you@email.com" required>
+            <div class="form-err">Valid email required</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-input" placeholder="Min. 6 characters" required minlength="6">
+            <div class="form-err">Min. 6 characters</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" class="form-input" placeholder="Repeat password" required>
+            <div class="form-err">Passwords must match</div>
+          </div>
+          <button type="submit" class="btn btn-dark btn-full btn-lg">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer-ph"></div>
+<script src="js/layout.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

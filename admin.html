@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — VELNOVA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-ph"></div>
+<div style="padding-top:var(--nav-h);">
+<div class="admin-wrap">
+
+  <!-- Sidebar -->
+  <div class="admin-sidebar">
+    <div class="admin-sidebar-logo">VELNOVA<br><span style="font-size:0.65rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;">Admin</span></div>
+    <button class="admin-nav-item on" onclick="adminTab('overview',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Overview
+    </button>
+    <button class="admin-nav-item" onclick="adminTab('add-product',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Add Product
+    </button>
+    <button class="admin-nav-item" onclick="adminTab('products',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+      Products
+    </button>
+    <button class="admin-nav-item" onclick="adminTab('orders',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 000 4h6a2 2 0 000-4M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      Orders
+    </button>
+    <button class="admin-nav-item" onclick="adminTab('users',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      Customers
+    </button>
+    <button class="admin-nav-item" onclick="adminTab('settings',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      Settings
+    </button>
+    <button onclick="doLogout()" style="margin-top:auto;color:rgba(255,255,255,0.3);padding:13px 24px;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;border:none;background:none;cursor:pointer;text-align:left;display:flex;gap:10px;align-items:center;width:100%;margin-top:24px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Logout
+    </button>
+  </div>
+
+  <!-- Main -->
+  <div class="admin-main">
+
+    <!-- OVERVIEW -->
+    <div class="admin-panel on" id="panel-overview">
+      <div class="admin-topbar">
+        <h1>Dashboard</h1>
+        <span style="font-size:0.82rem;color:var(--grey-600);" id="admin-greeting">Welcome back</span>
+      </div>
+      <div class="stat-cards">
+        <div class="stat-card"><div class="stat-card-num" id="stat-products">—</div><div class="stat-card-lbl">Total Products</div></div>
+        <div class="stat-card"><div class="stat-card-num" id="stat-orders">—</div><div class="stat-card-lbl">Total Orders</div></div>
+        <div class="stat-card"><div class="stat-card-num" id="stat-users">—</div><div class="stat-card-lbl">Customers</div></div>
+        <div class="stat-card"><div class="stat-card-num" id="stat-revenue">—</div><div class="stat-card-lbl">Total Revenue</div></div>
+      </div>
+      <!-- Recent orders mini -->
+      <h3 style="font-family:var(--font-display);font-size:1.2rem;margin-bottom:16px;">Recent Orders</h3>
+      <div id="overview-orders"><p style="color:var(--grey-400);">Loading...</p></div>
+    </div>
+
+    <!-- ADD PRODUCT -->
+    <div class="admin-panel" id="panel-add-product">
+      <div class="admin-topbar"><h1>Add New Product</h1></div>
+      <form id="add-product-form" style="max-width:700px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Product Name *</label>
+            <input type="text" id="p-name" class="form-input" placeholder="e.g. Premium Linen Shirt" required>
+            <div class="form-err">Required</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Category *</label>
+            <select id="p-cat" class="form-input" required>
+              <option value="">Select category</option>
+              <option value="men">Men</option>
+              <option value="women">Women</option>
+            </select>
+            <div class="form-err">Required</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Price (₦) *</label>
+            <input type="number" id="p-price" class="form-input" placeholder="e.g. 25000" min="0" required>
+            <div class="form-err">Required</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Old Price (₦) — optional</label>
+            <input type="number" id="p-old-price" class="form-input" placeholder="Leave blank if no discount" min="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Available Sizes *</label>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;">
+            <label style="display:flex;align-items:center;gap:6px;font-size:0.875rem;cursor:pointer;"><input type="checkbox" value="XS" style="accent-color:var(--black)"> XS</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:0.875rem;cursor:pointer;"><input type="checkbox" value="S" style="accent-color:var(--black)"> S</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:0.875rem;cursor:pointer;"><input type="checkbox" value="M" style="accent-color:var(--black)" checked> M</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:0.875rem;cursor:pointer;"><input type="checkbox" value="L" style="accent-color:var(--black)" checked> L</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:0.875rem;cursor:pointer;"><input type="checkbox" value="XL" style="accent-color:var(--black)" checked> XL</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:0.875rem;cursor:pointer;"><input type="checkbox" value="XXL" style="accent-color:var(--black)"> XXL</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Badge</label>
+          <select id="p-badge" class="form-input">
+            <option value="">No badge</option>
+            <option value="New In">New In</option>
+            <option value="Sale">Sale</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Product Description *</label>
+          <textarea id="p-desc" class="form-input" rows="4" placeholder="Describe the product — fabric, fit, occasion, care instructions..." required></textarea>
+          <div class="form-err">Description required</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Product Images *</label>
+          <div class="upload-area" id="upload-area" onclick="document.getElementById('img-upload').click()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <p>Click to upload product images</p>
+            <span>JPG, PNG — multiple images allowed</span>
+          </div>
+          <input type="file" id="img-upload" accept="image/*" multiple style="display:none" onchange="previewImages(this)">
+          <div class="img-preview-grid" id="img-preview-grid"></div>
+        </div>
+        <div style="display:flex;gap:12px;">
+          <button type="submit" class="btn btn-dark btn-lg" id="add-product-btn">Publish Product</button>
+          <button type="button" class="btn btn-ghost" onclick="document.getElementById('add-product-form').reset();document.getElementById('img-preview-grid').innerHTML='';">Clear</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- PRODUCTS LIST -->
+    <div class="admin-panel" id="panel-products">
+      <div class="admin-topbar">
+        <h1>Products</h1>
+        <button class="btn btn-dark btn-sm" onclick="adminTab('add-product',document.querySelector('.admin-nav-item:nth-child(2)'))">+ Add New</button>
+      </div>
+      <div id="products-table"><p style="color:var(--grey-400);">Loading...</p></div>
+    </div>
+
+    <!-- ORDERS -->
+    <div class="admin-panel" id="panel-orders">
+      <div class="admin-topbar">
+        <h1>Orders</h1>
+        <button class="btn btn-ghost btn-sm" onclick="loadAdminOrders()">↻ Refresh</button>
+      </div>
+      <div id="orders-table"><p style="color:var(--grey-400);">Loading...</p></div>
+    </div>
+
+    <!-- CUSTOMERS -->
+    <div class="admin-panel" id="panel-users">
+      <div class="admin-topbar"><h1>Customers</h1></div>
+      <div id="users-table"><p style="color:var(--grey-400);">Loading...</p></div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="admin-panel" id="panel-settings">
+      <div class="admin-topbar"><h1>Settings</h1></div>
+      <div style="max-width:520px;">
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--grey-100);">Bank Transfer Details</h3>
+        <p style="font-size:0.85rem;color:var(--grey-600);margin-bottom:24px;line-height:1.7;">These details will be shown to customers on the checkout page. Keep them up to date.</p>
+        <form id="bank-settings-form">
+          <div class="form-group">
+            <label class="form-label">Bank Name</label>
+            <input type="text" id="s-bank-name" class="form-input" placeholder="e.g. Guaranty Trust Bank (GTB)" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Account Number</label>
+            <input type="text" id="s-account-no" class="form-input" placeholder="e.g. 0123456789" maxlength="10" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Account Name</label>
+            <input type="text" id="s-account-name" class="form-input" placeholder="e.g. VELNOVA CLOTHING" required>
+          </div>
+          <button type="submit" class="btn btn-dark">Save Bank Details</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<script src="js/layout.js"></script>
+<script src="js/script.js"></script>
+<script>
+// ── ADMIN GUARD ───────────────────────────────────────────
+async function initAdmin() {
+  try {
+    const r = await fetch('/api/auth/me', { credentials:'include' });
+    const d = await r.json();
+    if (!d.success || d.user.role !== 'admin') { toast('Admin access required'); setTimeout(() => location.href='/login.html', 1500); return; }
+    document.getElementById('admin-greeting').textContent = `Welcome, ${d.user.name}`;
+    loadOverview();
+  } catch { location.href = '/login.html'; }
+}
+
+// ── TAB SWITCHER ──────────────────────────────────────────
+function adminTab(panel, btn) {
+  document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.admin-nav-item').forEach(b => b.classList.remove('on'));
+  document.getElementById(`panel-${panel}`)?.classList.add('on');
+  btn?.classList.add('on');
+  if (panel === 'products') loadAdminProducts();
+  if (panel === 'orders')   loadAdminOrders();
+  if (panel === 'users')    loadAdminUsers();
+  if (panel === 'settings') loadBankSettings();
+}
+
+// ── OVERVIEW ──────────────────────────────────────────────
+async function loadOverview() {
+  try {
+    const r = await fetch('/api/admin/stats', { credentials:'include' });
+    const d = await r.json();
+    if (d.success) {
+      document.getElementById('stat-products').textContent = d.stats.totalProducts;
+      document.getElementById('stat-orders').textContent   = d.stats.totalOrders;
+      document.getElementById('stat-users').textContent    = d.stats.totalUsers;
+      document.getElementById('stat-revenue').textContent  = '₦' + Number(d.stats.revenue).toLocaleString('en-NG');
+    }
+  } catch {}
+  // Recent orders
+  try {
+    const r = await fetch('/api/admin/orders?limit=5', { credentials:'include' });
+    const d = await r.json();
+    const el = document.getElementById('overview-orders');
+    if (!d.success || !d.orders.length) { el.innerHTML = '<p style="color:var(--grey-400);">No orders yet.</p>'; return; }
+    el.innerHTML = `<div class="admin-table-wrap"><table class="admin-table">
+      <thead><tr><th>Order</th><th>Customer</th><th>Location</th><th>Total</th><th>Status</th></tr></thead>
+      <tbody>${d.orders.slice(0,5).map(o => `
+        <tr>
+          <td><strong>#${String(o._id).slice(-6).toUpperCase()}</strong></td>
+          <td>${o.userEmail}</td>
+          <td>${o.shippingAddress?.city || '—'}, ${o.shippingAddress?.state || '—'}</td>
+          <td>₦${Number(o.total).toLocaleString('en-NG')}</td>
+          <td><span class="status-pill status-${o.status}">${o.status}</span></td>
+        </tr>`).join('')}
+      </tbody></table></div>`;
+  } catch {}
+}
+
+// ── PRODUCTS ──────────────────────────────────────────────
+async function loadAdminProducts() {
+  const el = document.getElementById('products-table');
+  el.innerHTML = 'Loading...';
+  try {
+    const r = await fetch('/api/products', { credentials:'include' });
+    const d = await r.json();
+    if (!d.success || !d.products.length) { el.innerHTML = '<p style="color:var(--grey-400);">No products yet. Add your first product.</p>'; return; }
+    el.innerHTML = `<div class="admin-table-wrap"><table class="admin-table">
+      <thead><tr><th>Image</th><th>Name</th><th>Category</th><th>Price</th><th>Badge</th><th>Actions</th></tr></thead>
+      <tbody>${d.products.map(p => `
+        <tr>
+          <td><div style="width:48px;height:60px;overflow:hidden;background:var(--grey-50);"><img src="${p.images?.[0]||''}" style="width:100%;height:100%;object-fit:cover;"></div></td>
+          <td><strong>${p.name}</strong></td>
+          <td>${p.category}</td>
+          <td>₦${Number(p.price).toLocaleString('en-NG')}</td>
+          <td>${p.badge || '—'}</td>
+          <td>
+            <button onclick="deleteProduct('${p._id}')" class="btn btn-ghost btn-sm" style="color:#c0392b;border-color:#f8d7da;">Delete</button>
+          </td>
+        </tr>`).join('')}
+      </tbody></table></div>`;
+  } catch { el.innerHTML = '<p style="color:red">Error loading products.</p>'; }
+}
+
+async function deleteProduct(id) {
+  if (!confirm('Delete this product? This cannot be undone.')) return;
+  const r = await fetch(`/api/products/${id}`, { method:'DELETE', credentials:'include' });
+  const d = await r.json();
+  if (d.success) { toast('Product deleted.'); loadAdminProducts(); }
+  else toast(d.message);
+}
+
+// ── ADD PRODUCT ───────────────────────────────────────────
+let uploadedImages = [];
+
+function previewImages(input) {
+  const grid = document.getElementById('img-preview-grid');
+  uploadedImages = Array.from(input.files);
+  grid.innerHTML = uploadedImages.map((f, i) => {
+    const url = URL.createObjectURL(f);
+    return `<div class="img-preview"><img src="${url}"><div class="img-preview-del" onclick="removeImg(${i})">✕</div></div>`;
+  }).join('');
+}
+
+function removeImg(i) {
+  uploadedImages.splice(i, 1);
+  const grid = document.getElementById('img-preview-grid');
+  grid.innerHTML = uploadedImages.map((f, j) => {
+    const url = URL.createObjectURL(f);
+    return `<div class="img-preview"><img src="${url}"><div class="img-preview-del" onclick="removeImg(${j})">✕</div></div>`;
+  }).join('');
+}
+
+document.getElementById('add-product-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!validateForm(e.target)) return;
+
+  const sizes = Array.from(document.querySelectorAll('#add-product-form input[type="checkbox"]:checked')).map(c => c.value);
+  if (!sizes.length) { toast('Please select at least one size'); return; }
+
+  const btn = document.getElementById('add-product-btn');
+  btn.textContent = 'Publishing...'; btn.disabled = true;
+
+  const formData = new FormData();
+  formData.append('name',        document.getElementById('p-name').value);
+  formData.append('category',    document.getElementById('p-cat').value);
+  formData.append('price',       document.getElementById('p-price').value);
+  formData.append('description', document.getElementById('p-desc').value);
+  formData.append('badge',       document.getElementById('p-badge').value);
+  formData.append('sizes',       JSON.stringify(sizes));
+
+  const oldPrice = document.getElementById('p-old-price').value;
+  if (oldPrice) formData.append('oldPrice', oldPrice);
+
+  uploadedImages.forEach(f => formData.append('images', f));
+
+  try {
+    const r = await fetch('/api/products', { method:'POST', credentials:'include', body: formData });
+    const d = await r.json();
+    if (d.success) {
+      toast('Product published successfully!');
+      e.target.reset();
+      document.getElementById('img-preview-grid').innerHTML = '';
+      uploadedImages = [];
+    } else { toast(d.message); }
+  } catch { toast('Error publishing product.'); }
+
+  btn.textContent = 'Publish Product'; btn.disabled = false;
+});
+
+// ── ORDERS ────────────────────────────────────────────────
+async function loadAdminOrders() {
+  const el = document.getElementById('orders-table');
+  el.innerHTML = 'Loading...';
+  try {
+    const r = await fetch('/api/admin/orders', { credentials:'include' });
+    const d = await r.json();
+    if (!d.success || !d.orders.length) { el.innerHTML = '<p style="color:var(--grey-400);">No orders yet.</p>'; return; }
+    el.innerHTML = `<div class="admin-table-wrap"><table class="admin-table">
+      <thead><tr><th>Order</th><th>Customer</th><th>Delivery Location</th><th>Full Address</th><th>Items</th><th>Total</th><th>Date</th><th>Status</th><th>Update</th></tr></thead>
+      <tbody>${d.orders.map(o => `
+        <tr>
+          <td><strong>#${String(o._id).slice(-6).toUpperCase()}</strong></td>
+          <td>
+            <div style="font-weight:400;">${o.shippingAddress?.fullName || o.userEmail}</div>
+            <div style="font-size:0.72rem;color:var(--grey-400);">${o.userEmail}</div>
+          </td>
+          <td>
+            <strong>${o.shippingAddress?.city || '—'}</strong><br>
+            <span style="font-size:0.72rem;color:var(--grey-400);">${o.shippingAddress?.state || '—'}</span>
+          </td>
+          <td style="max-width:180px;">
+            <div style="font-size:0.78rem;color:var(--grey-600);line-height:1.5;">
+              ${o.shippingAddress?.address || '—'}
+            </div>
+            <div style="font-size:0.72rem;color:var(--grey-400);">📞 ${o.shippingAddress?.phone || '—'}</div>
+          </td>
+          <td>${o.items.length} item${o.items.length>1?'s':''}</td>
+          <td><strong>₦${Number(o.total).toLocaleString('en-NG')}</strong></td>
+          <td style="font-size:0.78rem;">${new Date(o.placedAt).toLocaleDateString('en-NG',{day:'numeric',month:'short'})}</td>
+          <td><span class="status-pill status-${o.status}" id="spill-${o._id}">${o.status}</span></td>
+          <td>
+            <select onchange="updateOrderStatus('${o._id}',this.value,this)" style="padding:6px 8px;border:1px solid var(--grey-200);font-size:0.78rem;outline:none;cursor:pointer;background:white;min-width:110px;">
+              <option value="">Change...</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="shipped">Shipped</option>
+              <option value="delivered">Delivered</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </td>
+        </tr>`).join('')}
+      </tbody></table></div>`;
+  } catch { el.innerHTML = '<p style="color:red">Error loading orders.</p>'; }
+}
+
+async function updateOrderStatus(id, status, sel) {
+  if (!status) return;
+  const r = await fetch(`/api/admin/orders/${id}/status`, { method:'PATCH', credentials:'include', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ status }) });
+  const d = await r.json();
+  if (d.success) {
+    const pill = document.getElementById(`spill-${id}`);
+    if (pill) { pill.textContent = status; pill.className = `status-pill status-${status}`; }
+    sel.value = '';
+    toast(`Order updated: ${status}`);
+    loadOverview();
+  } else toast(d.message);
+}
+
+// ── USERS ─────────────────────────────────────────────────
+async function loadAdminUsers() {
+  const el = document.getElementById('users-table');
+  el.innerHTML = 'Loading...';
+  try {
+    const r = await fetch('/api/admin/users', { credentials:'include' });
+    const d = await r.json();
+    if (!d.success || !d.users.length) { el.innerHTML = '<p style="color:var(--grey-400);">No customers yet.</p>'; return; }
+    el.innerHTML = `<div class="admin-table-wrap"><table class="admin-table">
+      <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th></tr></thead>
+      <tbody>${d.users.map(u => `
+        <tr>
+          <td><strong>${u.name}</strong></td>
+          <td>${u.email}</td>
+          <td><span style="background:${u.role==='admin'?'var(--black)':'var(--grey-100)'};color:${u.role==='admin'?'white':'var(--black)'};padding:3px 10px;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;">${u.role}</span></td>
+          <td>${new Date(u.createdAt).toLocaleDateString('en-NG',{day:'numeric',month:'short',year:'numeric'})}</td>
+        </tr>`).join('')}
+      </tbody></table></div>`;
+  } catch { el.innerHTML = '<p style="color:red">Error loading customers.</p>'; }
+}
+
+// ── BANK SETTINGS ─────────────────────────────────────────
+async function loadBankSettings() {
+  try {
+    const r = await fetch('/api/settings/bank', { credentials:'include' });
+    const d = await r.json();
+    if (d.success && d.bank) {
+      document.getElementById('s-bank-name').value    = d.bank.bankName    || '';
+      document.getElementById('s-account-no').value   = d.bank.accountNo   || '';
+      document.getElementById('s-account-name').value = d.bank.accountName || '';
+    }
+  } catch {}
+}
+
+document.getElementById('bank-settings-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = 'Saving...'; btn.disabled = true;
+  const payload = {
+    bankName:    document.getElementById('s-bank-name').value,
+    accountNo:   document.getElementById('s-account-no').value,
+    accountName: document.getElementById('s-account-name').value,
+  };
+  try {
+    const r = await fetch('/api/settings/bank', { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+    const d = await r.json();
+    if (d.success) toast('Bank details saved!');
+    else toast(d.message);
+  } catch { toast('Error saving settings.'); }
+  btn.textContent = 'Save Bank Details'; btn.disabled = false;
+});
+
+initAdmin();
+</script>
+</body>
+</html>

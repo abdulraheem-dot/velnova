@@ -1,0 +1,11 @@
+const router = require('express').Router();
+const { getStats, getAllUsers, getBankSettings, saveBankSettings } = require('../controllers/adminController');
+const { getAllOrders, updateStatus } = require('../controllers/orderController');
+const { requireAdmin } = require('../middleware/auth');
+router.get('/stats',               requireAdmin, getStats);
+router.get('/users',               requireAdmin, getAllUsers);
+router.get('/orders',              requireAdmin, getAllOrders);
+router.patch('/orders/:id/status', requireAdmin, updateStatus);
+router.get('/bank',                getBankSettings);
+router.post('/bank',               requireAdmin, saveBankSettings);
+module.exports = router;

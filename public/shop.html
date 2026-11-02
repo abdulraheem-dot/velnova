@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — VELNOVA</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="nav-ph"></div>
+
+<div class="page-hdr">
+  <div class="label-text" style="color:var(--grey-400);margin-bottom:8px">All Products</div>
+  <h1>Shop</h1>
+  <div class="breadcrumb"><a href="/">Home</a><span>/</span><span>Shop</span></div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="shop-layout">
+      <aside class="sidebar">
+        <div class="sb-section">
+          <div class="sb-title">Category</div>
+          <button class="filter-item active" data-cat="all"><span class="filter-dot"></span>All Items</button>
+          <button class="filter-item" data-cat="men"><span class="filter-dot"></span>Men</button>
+          <button class="filter-item" data-cat="women"><span class="filter-dot"></span>Women</button>
+        </div>
+        <div class="sb-section">
+          <div class="sb-title">Info</div>
+          <p style="font-size:.82rem;color:var(--grey-600);line-height:1.7">New products are added regularly by our team. Check back often for fresh arrivals.</p>
+        </div>
+        <div class="sb-section" style="border-top:1px solid var(--grey-200);padding-top:20px">
+          <p style="font-size:.78rem;color:var(--grey-600);line-height:1.6">Questions? Email us:<br><a href="mailto:velnovaclothing@gmail.com" style="color:var(--black)">velnovaclothing@gmail.com</a></p>
+        </div>
+      </aside>
+
+      <div>
+        <div class="shop-top">
+          <div class="shop-count" id="shop-count">Loading...</div>
+          <select class="sort-sel form-input" style="width:auto">
+            <option>Sort: Newest</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+          </select>
+        </div>
+        <div class="prod-grid prod-grid-3" id="shop-grid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-ph"></div>
+<script src="/js/layout.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
